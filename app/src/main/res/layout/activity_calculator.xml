@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/calculatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/transparent"
+    android:background="@mipmap/background"
 
     tools:context=".CalculatorActivity">
 
@@ -45,7 +46,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:ems="10"
-                android:inputType="text|datetime|date" />
+                android:inputType="text|datetime|date"
+                android:freezesText="true"
+                tools:ignore="LabelFor" />
 
             <TextView
                 android:id="@+id/showerTView"
@@ -63,7 +66,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:ems="10"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                android:freezesText="true"
+                tools:ignore="LabelFor" />
 
             <TextView
                 android:id="@+id/toiletTView"
@@ -81,7 +86,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:ems="10"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                android:freezesText="true"
+                tools:ignore="LabelFor" />
 
             <TextView
                 android:id="@+id/hygieneTView"
@@ -99,7 +106,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:ems="10"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                android:freezesText="true"
+                tools:ignore="LabelFor" />
 
             <TextView
                 android:id="@+id/laundyTView"
@@ -117,7 +126,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:ems="10"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                android:freezesText="true"
+                tools:ignore="LabelFor" />
 
             <TextView
                 android:id="@+id/dishesTView"
@@ -135,7 +146,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:ems="10"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                android:freezesText="true"
+                tools:ignore="LabelFor" />
 
             <TextView
                 android:id="@+id/cookingTView"
@@ -153,7 +166,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:ems="10"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                android:freezesText="true"
+                tools:ignore="LabelFor" />
 
             <TextView
                 android:id="@+id/cleaningTView"
@@ -171,7 +186,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:ems="10"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                android:freezesText="true"
+                tools:ignore="LabelFor" />
 
             <TextView
                 android:id="@+id/otherTView"
@@ -189,7 +206,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:ems="10"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                android:freezesText="true"
+                tools:ignore="LabelFor" />
 
         </GridLayout>
     </ScrollView>
@@ -211,4 +230,5 @@
         android:text="@string/submit_entry"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
 </android.support.constraint.ConstraintLayout>

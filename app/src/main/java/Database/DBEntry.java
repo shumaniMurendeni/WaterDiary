@@ -22,9 +22,9 @@ public class DBEntry {
     public static final String cleaning ="`"+cleaningID+"`";
     public static final String other = "`"+otherID+"`";
     public static final String[] columns =
-            {dateID,showerID,toiletID,hygieneID,laundryID,dishesID,cookingID,cleaningID,otherID};
+            {date,shower,toilet,hygiene,laundry,dishes,cooking,cleaning,other};
 
-    public static final String SQL_CREATE =  "CREATE TABLE "+ table +"(" +
+    public static final String SQL_CREATE =  "CREATE TABLE IF NOT EXISTS"+ table +"(" +
             date + "TEXT PRIMARY KEY NOT NULL,"+
             shower + "REAL DEFAULT 0," +
             toilet + "REAL DEFAULT 0," +

@@ -19,39 +19,14 @@ import static Utilities.DiaryEntryAdapter.getSummary;
 
 public class OverviewActivity extends AppCompatActivity {
 
+    //region Global Variables
     public static Context mcontext;
     List<DiaryEntry> diaryEntries = null;
     public static Bundle appState;
     public static DiaryEntryDataSource mDataSource;
+    //endregion
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_overview);
-        //<editor-fold desc="Check provided state">
-        if (savedInstanceState == null) {
-            appState = new Bundle();
-        }else{appState = savedInstanceState;}
-        //</editor-fold>
-
-        //<editor-fold desc="Create database connection">
-        mcontext= this;
-        mDataSource = new DiaryEntryDataSource(this);
-        mDataSource.open();
-        //</editor-fold>
-
-        //<editor-fold desc="Read in Data and update views">
-        diaryEntries = mDataSource.getAllEntries();
-        DiaryEntryAdapter.diaryEntries = diaryEntries;
-        if (diaryEntries!=null) {
-            updateSummary();
-            setUpListView();
-        }
-        //</editor-fold>
-
-
-    }
-
+    //<editor-fold desc="Utility Methods">
     public void onCalculatorButtonClick(View view) {
 
         Intent intent = new Intent(OverviewActivity.this,CalculatorActivity.class);
@@ -81,9 +56,39 @@ public class OverviewActivity extends AppCompatActivity {
         });
         //</editor-fold>
     }
+    //</editor-fold>
+
+    //<editor-fold desc="App cycle.">
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_overview);
+        setTitle(R.string.overView);
+        //<editor-fold desc="Check provided state">
+        if (savedInstanceState == null) {
+            appState = new Bundle();
+        }else{appState = savedInstanceState;}
+        //</editor-fold>
+
+        //<editor-fold desc="Create database connection">
+        mcontext= this;
+        mDataSource = new DiaryEntryDataSource(this);
+        mDataSource.open();
+        //</editor-fold>
+
+        //<editor-fold desc="Read in Data and update views">
+        diaryEntries = mDataSource.getAllEntries();
+        DiaryEntryAdapter.diaryEntries = diaryEntries;
+        if (diaryEntries!=null) {
+            updateSummary();
+            setUpListView();
+        }
+        //</editor-fold>
+
+
+    }
 
     public void onPause() {
-        onSaveInstanceState(appState);
         super.onPause();
         mDataSource.close();
 
@@ -102,7 +107,7 @@ public class OverviewActivity extends AppCompatActivity {
         mDataSource.open();
         updateSummary();
         setUpListView();
-        onRestoreInstanceState(appState);
 
     }
+    //</editor-fold>
 }

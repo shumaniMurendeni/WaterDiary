@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">" "</string>
+    <string name="app_name">Journal de l\'eau</string>
+    <string name="calculator">Ajouter une entrée de journal</string>
+    <string name="overView">Journal de l\'eau</string>
+    <string name="DiaryActivity">Journal détaillé</string>
+    <string name="overview">Vue d\'ensemble</string>
+    <string name="entry_date">Date d\'entrée</string>
+    <string name="previous_entry">Entrée précédente</string>
+    <string name="next_entry">Entrée suivante</string>
+    <string name="submit_entry">Soumettre une entrée</string>
+    <string name="Back">le dos</string>
+    <string name="date">la date</string>
+    <string name="shower">douche</string>
+    <string name="toilet">Toilette</string>
+    <string name="hygiene">Hygiène</string>
+    <string name="laundry">Blanchisserie</string>
+    <string name="dishes">Vaisselle</string>
+    <string name="cooking">Cuisine</string>
+    <string name="cleaning">Nettoyage</string>
+    <string name="other">Autre</string>
     <string name="unit">litres</string>
-    <string name="_11_march_2018">11 March 2018</string>
+    <string name="summary">Eau totale consommée</string>
+    <string name="average">Eau moyenne consommée par jour</string>
+    <string name="_11_march_2018">11 mars 2018</string>
+
 </resources>

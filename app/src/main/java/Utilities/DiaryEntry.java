@@ -1,10 +1,8 @@
 package Utilities;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.v7.app.AppCompatActivity;
 
 import com.example.waterdiary.OverviewActivity;
 import com.example.waterdiary.R;
@@ -44,22 +42,18 @@ public class DiaryEntry implements Parcelable {
                 + cleaning + other;
     }
 
-    public String getDate(){
-        return this.date;
-    }
-
     public DiaryEntry() {
         this.total = -1;
     }
 
     //<editor-fold desc="Property Methods">
+
     public double getTotalLitres() {
         if (total <0) {
             total = calculateTotal();
         }
         return this.total;
     }
-
     public double getShower() {
         return shower;
     }
@@ -90,6 +84,10 @@ public class DiaryEntry implements Parcelable {
 
     public double getOther() {
         return other;
+    }
+
+    public String getDate(){
+        return this.date;
     }
 
     public void setDate(String date) {
@@ -128,16 +126,17 @@ public class DiaryEntry implements Parcelable {
         this.other = other;
     }
     //</editor-fold>
+
     public String getDetails(){
         StringBuilder details = new StringBuilder();
-        details.append(String.format("%-11s: %s\n", OverviewActivity.mcontext.getString(R.string.shower), getShower() + " litre(s)"));
-        details.append(String.format("%-14s: %s\n", OverviewActivity.mcontext.getString(R.string.toilet), getToilet() + " litre(s)"));
-        details.append(String.format("%-11s: %s\n", OverviewActivity.mcontext.getString(R.string.hygiene), getHygiene() + " litre(s)"));
-        details.append(String.format("%-10s: %s\n", OverviewActivity.mcontext.getString(R.string.laundry), getLaundry() + " litre(s)"));
-        details.append(String.format("%-14s: %s\n", OverviewActivity.mcontext.getString(R.string.dishes), getDishes() + " litre(s)"));
-        details.append(String.format("%-12s: %s\n", OverviewActivity.mcontext.getString(R.string.cooking), getCooking() + " litre(s)"));
-        details.append(String.format("%-11s: %s\n", OverviewActivity.mcontext.getString(R.string.cleaning), getCleaning() + " litre(s)"));
-        details.append(String.format("%-14s: %s\n", OverviewActivity.mcontext.getString(R.string.other), getOther() + " litre(s)"));
+        details.append(String.format("%-11s: %s\n", OverviewActivity.mcontext.getString(R.string.shower), getShower() + " " + OverviewActivity.mcontext.getString(R.string.unit)));
+        details.append(String.format("%-14s: %s\n", OverviewActivity.mcontext.getString(R.string.toilet), getToilet() + " " + OverviewActivity.mcontext.getString(R.string.unit)));
+        details.append(String.format("%-11s: %s\n", OverviewActivity.mcontext.getString(R.string.hygiene), getHygiene() + " " + OverviewActivity.mcontext.getString(R.string.unit)));
+        details.append(String.format("%-10s: %s\n", OverviewActivity.mcontext.getString(R.string.laundry), getLaundry() + " " + OverviewActivity.mcontext.getString(R.string.unit)));
+        details.append(String.format("%-14s: %s\n", OverviewActivity.mcontext.getString(R.string.dishes), getDishes() + " " + OverviewActivity.mcontext.getString(R.string.unit)));
+        details.append(String.format("%-12s: %s\n", OverviewActivity.mcontext.getString(R.string.cooking), getCooking() + " " + OverviewActivity.mcontext.getString(R.string.unit)));
+        details.append(String.format("%-11s: %s\n", OverviewActivity.mcontext.getString(R.string.cleaning), getCleaning() + " " + OverviewActivity.mcontext.getString(R.string.unit)));
+        details.append(String.format("%-14s: %s\n", OverviewActivity.mcontext.getString(R.string.other), getOther() + " " + OverviewActivity.mcontext.getString(R.string.unit)));
 
         return details.toString();
     }

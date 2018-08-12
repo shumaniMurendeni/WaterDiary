@@ -15,7 +15,6 @@
         android:layout_centerVertical="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="11 March 2018"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="#000"
@@ -30,7 +29,6 @@
         android:layout_centerVertical="true"
         android:layout_toEndOf="@id/keyTView"
         android:layout_toRightOf="@id/keyTView"
-        android:text="29 litres"
         android:textAlignment="center"
         android:textColor="#000"
         android:textSize="18sp" />

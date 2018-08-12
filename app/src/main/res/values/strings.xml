@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">Water Diary</string>
-    <string name="calculator">add diary entry</string>
-    <string name="entry_date">Entry Date</string>
+    <string name="calculator">Add Diary Entry</string>
+    <string name="overView">Water Diary Overview</string>
+    <string name="DiaryActivity">Detailed Diary Entry</string>
     <string name="overview">Overview</string>
+    <string name="entry_date">Entry Date</string>
     <string name="previous_entry">Previous Entry</string>
     <string name="next_entry">Next Entry</string>
     <string name="submit_entry">Submit Entry</string>
@@ -20,4 +22,5 @@
     <string name="summary">Total water consumed</string>
     <string name="average">Average water consumed per day</string>
     <string name="_11_march_2018">11 March 2018</string>
+
 </resources>

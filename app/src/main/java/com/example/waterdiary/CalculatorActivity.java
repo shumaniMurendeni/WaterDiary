@@ -14,26 +14,16 @@ import Utilities.DiaryEntryAdapter;
 public class CalculatorActivity extends AppCompatActivity {
 
     private static Bundle bundle;
-    public static String unSavedText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bundle = savedInstanceState;
         setContentView(R.layout.activity_calculator);
+        setTitle(R.string.calculator);
 
-        if(unSavedText!=null && !unSavedText.isEmpty()){
-            displayEntries(0);
-        }
-        
         configureBackButton();
         configureSubmitButton();
-    }
-
-    private void displayEntries(int i) {
-       String [] entries = unSavedText.split(",");
-       //findViewById(R.id.dateEText).
-
     }
 
     private void configureSubmitButton(){
@@ -62,6 +52,9 @@ public class CalculatorActivity extends AppCompatActivity {
                                 ,Double.parseDouble(cooking.getText().toString())
                                 ,Double.parseDouble(cleaning.getText().toString())
                                 ,Double.parseDouble(other.getText().toString())));
+                        date.setText(""); shower.setText(""); toilet.setText(""); hygiene.setText("");
+                        laundry.setText(""); dishes.setText(""); cooking.setText("");
+                        cleaning.setText(""); other.setText("");
                         finish();
                         startActivity(new Intent(CalculatorActivity.this,DiaryActivity.class));
                     } catch (NumberFormatException e) {
@@ -73,7 +66,7 @@ public class CalculatorActivity extends AppCompatActivity {
                 }else{
                     Toast.makeText(CalculatorActivity.this,"Please Enter the date for the Diary Entry",
                             Toast.LENGTH_LONG).show();
-                    }
+                }
             }
         });
     }
@@ -83,8 +76,6 @@ public class CalculatorActivity extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                OverviewActivity.appState.putBundle("CalculatorActivity",bundle);
-//                onSaveInstanceState(bundle);
                 finish();
             }
         });
@@ -94,16 +85,4 @@ public class CalculatorActivity extends AppCompatActivity {
         finish();
     }
 
-    public void onResume() {
-
-        super.onResume();
-        if (bundle != null) {
-            onRestoreInstanceState(bundle);
-        }
-    }
-
-    public void finish(){
-//        this.onSaveInstanceState(bundle);
-        super.finish();
-    }
 }

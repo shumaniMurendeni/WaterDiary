@@ -20,6 +20,7 @@ public class DiaryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary);
+        setTitle(R.string.DiaryActivity);
 
         updateButtonStatus(index);
         if (entries != null && entries.size()>0) {
@@ -50,7 +51,7 @@ public class DiaryActivity extends AppCompatActivity {
     }
 
     public void onCalculatorButtonClick(View view){
-        finish();
+        onPause();
         startActivity(new Intent(DiaryActivity.this, CalculatorActivity.class));
     }
 

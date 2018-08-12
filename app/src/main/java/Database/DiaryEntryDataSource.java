@@ -3,7 +3,6 @@ package Database;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.CursorWrapper;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -13,9 +12,9 @@ import java.util.List;
 import Utilities.DiaryEntry;
 
 public class DiaryEntryDataSource {
-    private Context mContext;
+    private final Context mContext;
     private SQLiteDatabase mDataBase;
-    SQLiteOpenHelper mDBHelper;
+    final SQLiteOpenHelper mDBHelper;
 
     public DiaryEntryDataSource(Context context) {
         this.mContext = context;
@@ -24,22 +23,25 @@ public class DiaryEntryDataSource {
 
     }
 
-    public void open(){mDataBase = mDBHelper.getWritableDatabase();}
+    public void open(){
+        //mDBHelper.onCreate(mDataBase);
+
+        mDataBase = mDBHelper.getWritableDatabase();
+    }
     public void close(){mDBHelper.close();}
 
-    public DiaryEntry createEntry(DiaryEntry entry){
+    public void createEntry(DiaryEntry entry){
         ContentValues contentValues = entry.toValues();
         open();
         mDataBase.insert(DBEntry.table,null,contentValues);
         close();
-        return entry;
     }
 
     public List<DiaryEntry> getAllEntries(){
         List<DiaryEntry> diaryEntries = new ArrayList<>();
         DiaryEntry entry;
         Cursor cursor;
-        cursor = mDataBase.query(DBEntry.table,DBEntry.columns,null,null,
+        cursor = mDataBase.query(DBEntry.tableName,DBEntry.columns,null,null,
                 null,null,null);
         while(cursor.moveToNext()){
 
