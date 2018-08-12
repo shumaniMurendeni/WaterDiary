@@ -1,12 +1,10 @@
 package com.example.waterdiary;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.PopupMenu;
-import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,8 +26,8 @@ public class CalculatorActivity extends AppCompatActivity {
             displayEntries(0);
         }
         
-        configureBackButtor();
-        configureSubmitButtor();
+        configureBackButton();
+        configureSubmitButton();
     }
 
     private void displayEntries(int i) {
@@ -38,7 +36,7 @@ public class CalculatorActivity extends AppCompatActivity {
 
     }
 
-    private void configureSubmitButtor(){
+    private void configureSubmitButton(){
         Button submitButton = findViewById(R.id.Submitbutton);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,27 +71,26 @@ public class CalculatorActivity extends AppCompatActivity {
                     }
 
                 }else{
-
                     Toast.makeText(CalculatorActivity.this,"Please Enter the date for the Diary Entry",
                             Toast.LENGTH_LONG).show();
-
                     }
             }
         });
     }
 
-    private void configureBackButtor() {
+    private void configureBackButton() {
         Button backButton = findViewById(R.id.Backbutton);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 OverviewActivity.appState.putBundle("CalculatorActivity",bundle);
+//                onSaveInstanceState(bundle);
                 finish();
             }
         });
     }
     public void onBackClick(View view){
-
+        onSaveInstanceState(bundle);
         finish();
     }
 
@@ -102,17 +99,11 @@ public class CalculatorActivity extends AppCompatActivity {
         super.onResume();
         if (bundle != null) {
             onRestoreInstanceState(bundle);
-        }else{
-           // bundle = this;
         }
-
     }
 
     public void finish(){
-        /*
-        this.onSaveInstanceState(bundle);
-        OverviewActivity.appState.putBundle("Calculator",bundle);
-        */
+//        this.onSaveInstanceState(bundle);
         super.finish();
     }
 }

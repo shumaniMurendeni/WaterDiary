@@ -2,14 +2,12 @@ package com.example.waterdiary;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -17,11 +15,10 @@ import Database.DiaryEntryDataSource;
 import Utilities.DiaryEntry;
 import Utilities.DiaryEntryAdapter;
 
-import static Utilities.DiaryEntryAdapter.*;
+import static Utilities.DiaryEntryAdapter.getSummary;
 
 public class OverviewActivity extends AppCompatActivity {
 
-    static final String Diary_Entry = "Diary Entries";
     public static Context mcontext;
     List<DiaryEntry> diaryEntries = null;
     public static Bundle appState;
@@ -31,58 +28,58 @@ public class OverviewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_overview);
+        //<editor-fold desc="Check provided state">
         if (savedInstanceState == null) {
             appState = new Bundle();
         }else{appState = savedInstanceState;}
+        //</editor-fold>
+
+        //<editor-fold desc="Create database connection">
         mcontext= this;
         mDataSource = new DiaryEntryDataSource(this);
         mDataSource.open();
+        //</editor-fold>
+
+        //<editor-fold desc="Read in Data and update views">
         diaryEntries = mDataSource.getAllEntries();
         DiaryEntryAdapter.diaryEntries = diaryEntries;
         if (diaryEntries!=null) {
             updateSummary();
             setUpListView();
         }
+        //</editor-fold>
 
 
     }
 
     public void onCalculatorButtonClick(View view) {
-        //final Button calculator = findViewById(R.id.calculator_launcher_button);
 
-        Intent intent = new Intent(OverviewActivity.this,DiaryActivity.class);
-
+        Intent intent = new Intent(OverviewActivity.this,CalculatorActivity.class);
         startActivity(intent);
     }
 
-/*
-    public void onSaveInstanceState(Bundle savedInstanceState){
-
-        savedInstanceState.putString(Diary_Entry,"shumani");
-
-        super.onSaveInstanceState(savedInstanceState);
-    }*/
     private void updateSummary() {
         TextView tvOut = findViewById(R.id.SummaryTV);
         tvOut.setText(String.format("%-10s:\n", getString(R.string.summary)));
         tvOut.append(getSummary());
-    }
-    public void onItemSelected(ListView listView){
-        final ListView list = findViewById(R.id.DiaryEntriesLView);
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                DiaryActivity.index = i;
-                startActivity(new Intent(OverviewActivity.this,DiaryActivity.class));
-            }
-        });
-
     }
 
     private void setUpListView() {
         DiaryEntryAdapter adapter = new DiaryEntryAdapter(this);
         ListView listOut = findViewById(R.id.DiaryEntriesLView);
         listOut.setAdapter(adapter);
+
+        //<editor-fold desc="Setup onClick listener">
+        listOut.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                onPause();
+                DiaryActivity.index = position;
+                startActivity(new Intent(OverviewActivity.this, DiaryActivity.class));
+                //Toast.makeText(OverviewActivity.this,"position" + position,Toast.LENGTH_LONG).show();
+            }
+        });
+        //</editor-fold>
     }
 
     public void onPause() {
@@ -105,6 +102,7 @@ public class OverviewActivity extends AppCompatActivity {
         mDataSource.open();
         updateSummary();
         setUpListView();
+        onRestoreInstanceState(appState);
 
     }
 }
