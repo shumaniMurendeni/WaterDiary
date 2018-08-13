@@ -14,6 +14,7 @@ import Utilities.DiaryEntryAdapter;
 public class CalculatorActivity extends AppCompatActivity {
 
     private static Bundle bundle;
+    int activityNo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,7 @@ public class CalculatorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_calculator);
         setTitle(R.string.calculator);
 
+        activityNo = getIntent().getIntExtra("class",1);
         configureBackButton();
         configureSubmitButton();
     }
@@ -56,6 +58,8 @@ public class CalculatorActivity extends AppCompatActivity {
                         laundry.setText(""); dishes.setText(""); cooking.setText("");
                         cleaning.setText(""); other.setText("");
                         finish();
+                        DiaryActivity.index = DiaryEntryAdapter.diaryEntries.size()-1;
+                        OverviewActivity.lastSeen = 1;
                         startActivity(new Intent(CalculatorActivity.this,DiaryActivity.class));
                     } catch (NumberFormatException e) {
                         e.printStackTrace();
@@ -77,6 +81,14 @@ public class CalculatorActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
+                if(activityNo==1){
+                    OverviewActivity.lastSeen =0;
+                    startActivity(new Intent(CalculatorActivity.this,OverviewActivity.class));
+                }
+                else {
+                    OverviewActivity.lastSeen = 1;
+                    startActivity(new Intent(CalculatorActivity.this,DiaryActivity.class));
+                }
             }
         });
     }

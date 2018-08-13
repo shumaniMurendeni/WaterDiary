@@ -47,12 +47,16 @@ public class DiaryActivity extends AppCompatActivity {
     }
 
     public void onOverviewButtonClick(View view){
+        OverviewActivity.lastSeen = 0;
         finish();
     }
 
     public void onCalculatorButtonClick(View view){
-        onPause();
-        startActivity(new Intent(DiaryActivity.this, CalculatorActivity.class));
+        finish();
+        Intent intent = new Intent(DiaryActivity.this, CalculatorActivity.class);
+        intent.putExtra("class",2);
+        OverviewActivity.lastSeen = 2;
+        startActivity(intent);
     }
 
     private void updateButtonStatus(int position) {

@@ -24,12 +24,14 @@ public class OverviewActivity extends AppCompatActivity {
     List<DiaryEntry> diaryEntries = null;
     public static Bundle appState;
     public static DiaryEntryDataSource mDataSource;
+    public static int lastSeen = 0;
     //endregion
 
     //<editor-fold desc="Utility Methods">
     public void onCalculatorButtonClick(View view) {
 
         Intent intent = new Intent(OverviewActivity.this,CalculatorActivity.class);
+        intent.putExtra("class",1);
         startActivity(intent);
     }
 
@@ -84,7 +86,8 @@ public class OverviewActivity extends AppCompatActivity {
             setUpListView();
         }
         //</editor-fold>
-
+        if(lastSeen==1){startActivity(new Intent(this,DiaryActivity.class));}
+        else if (lastSeen==2){startActivity(new Intent(this,CalculatorActivity.class));}
 
     }
 
