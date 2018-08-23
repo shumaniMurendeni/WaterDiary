@@ -6,7 +6,6 @@
     android:id="@+id/calculatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/background"
 
     tools:context=".CalculatorActivity">
 
@@ -40,15 +39,11 @@
                 android:text="@string/entry_date"
                 android:textSize="18sp" />
 
-            <EditText
+            <CalendarView
                 android:id="@+id/dateEText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:ems="10"
-                android:inputType="text|datetime|date"
-                android:freezesText="true"
-                tools:ignore="LabelFor" />
+                android:layout_marginStart="24dp" />
 
             <TextView
                 android:id="@+id/showerTView"

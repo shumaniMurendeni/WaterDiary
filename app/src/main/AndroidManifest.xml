@@ -16,8 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DiaryActivity" />
+        <activity android:name=".DiaryActivity"
+            android:parentActivityName=".OverviewActivity"/>
         <activity android:name=".CalculatorActivity" />
+        <activity android:name=".HelpActivity"></activity>
     </application>
 
 </manifest>

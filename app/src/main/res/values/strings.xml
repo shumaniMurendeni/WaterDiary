@@ -22,5 +22,8 @@
     <string name="summary">Total water consumed</string>
     <string name="average">Average water consumed per day</string>
     <string name="_11_march_2018">11 March 2018</string>
+    <string name="review_app">Review App</string>
+    <string name="help">Help</string>
+    <string name="user_manual">User Manual</string>
 
 </resources>

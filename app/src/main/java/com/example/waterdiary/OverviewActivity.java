@@ -27,7 +27,7 @@ public class OverviewActivity extends AppCompatActivity {
     public static int lastSeen = 0;
     //endregion
 
-    //<editor-fold desc="Utility Methods">
+    //region Utility Methods
     public void onCalculatorButtonClick(View view) {
 
         Intent intent = new Intent(OverviewActivity.this,CalculatorActivity.class);
@@ -58,9 +58,9 @@ public class OverviewActivity extends AppCompatActivity {
         });
         //</editor-fold>
     }
-    //</editor-fold>
+    //endregion
 
-    //<editor-fold desc="App cycle.">
+    //region App cycle
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,6 +91,34 @@ public class OverviewActivity extends AppCompatActivity {
 
     }
 
+    /*
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.help:
+                //do something
+                startActivity(new Intent(this,HelpActivity.class));
+                break;
+
+            case R.id.review:
+                //Open the review page
+                Toast.makeText(this,"Review",Toast.LENGTH_LONG).show();
+                break;
+
+            default:
+                Toast.makeText(this,"Hello",Toast.LENGTH_LONG).show();
+        }
+        return super.onOptionsItemSelected(item);
+    }//*/
+
+    @Override
     public void onPause() {
         super.onPause();
         mDataSource.close();
@@ -112,5 +140,5 @@ public class OverviewActivity extends AppCompatActivity {
         setUpListView();
 
     }
-    //</editor-fold>
+    //endregion
 }
