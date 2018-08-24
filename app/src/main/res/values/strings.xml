@@ -25,5 +25,10 @@
     <string name="review_app">Review App</string>
     <string name="help">Help</string>
     <string name="user_manual">User Manual</string>
+    <string name="helpText">BODY WASHING\nOne stop/start shower = 5 l\nOne stop/start with hair wash = 10 l\n2-minute-shower = 20 l\nOne waskom or sponge bath (basin) = 3 l\n\nTOILET\nOne normal flush= 9l\nOne half flush = 4.5l\nGreywater flush (from shower, rainwater etc) = 0l\n\nHYGIENE\nOne hands wash = 0.3l\nOne face wash = 0.5l\nHands wash with hand sanitiser = 0l\n\nBRUSHING TEETH\nBrushing teeth =0.15l\n\nLAUNDRY\nWashing maching load (70l) = 10 l per day\nHand washing load per day = 9l\n\nDISHES\n1 dishwasher load (24 l) = approximately 3.5 l per day\n1 sink wash a day = 9 l\n\nDRINKING\nWater, tea, coffee = 3 l\n\nCOOKING\nWashing fruit and veg and to cook = 2 l\n\nCLEANING\nHouse clean = 8 l\n\nPETS\nSmall size pet = 0,5 l\nMedium size pet = 1 l\nLarge size pet = 2 l\nDogs: 50 –70 ml per kg.\nCats: 20 – 40 ml per kg.</string>
+    <string name="app_rating">App rating</string>
+    <string name="feedback">Feedback</string>
+    <string name="submit_feedback">Submit Feedback</string>
+    <string name="app_feedback">App feedback</string>
 
 </resources>

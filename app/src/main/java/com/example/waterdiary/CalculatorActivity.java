@@ -1,5 +1,6 @@
 package com.example.waterdiary;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,11 +49,12 @@ public class CalculatorActivity extends AppCompatActivity {
                 break;
 
             case R.id.review:
-                Toast.makeText(this,"Review", Toast.LENGTH_LONG).show();
+                onPause();
+                startActivity(new Intent(this,ReviewActivity.class));
                 break;
 
             default:
-                Toast.makeText(this,"Hello",Toast.LENGTH_LONG).show();
+                Toast.makeText(this,"Hello",Toast.LENGTH_LONG);
         }
         return super.onOptionsItemSelected(item);
     }
@@ -122,6 +125,42 @@ public class CalculatorActivity extends AppCompatActivity {
     public void onBackClick(View view){
         onSaveInstanceState(bundle);
         finish();
+    }
+    public void onDateETextClick(View view){
+        TextView dateEText = findViewById(R.id.dateEText);
+       // new Dialog(){};
+        DatePicker cal = new DatePicker(this);
+        //region listener
+        /*cal.setOnClickListener(new DatePicker.OnDateChangedListener() {
+            @Override
+            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                String month;
+                switch (monthOfYear){
+                    case 0:
+                        month="January";
+                        break;
+                    case 1:
+                        month="Febuary";
+                        break;
+                    case 2:
+                        month="January";
+                        break;
+                    case 3:
+                        month="January";
+                        break;
+                    case 4:
+                        month="January";
+                        break;
+                }
+            }
+        });*///endregion
+        Dialog calDialog = new Dialog(this);
+        calDialog.setContentView(cal);
+
+        calDialog.show();
+
+        dateEText.setText("24 August 2018");
+
     }
 
 }

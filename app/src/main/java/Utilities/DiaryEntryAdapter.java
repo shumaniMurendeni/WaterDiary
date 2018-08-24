@@ -33,7 +33,7 @@ public class DiaryEntryAdapter extends ArrayAdapter<DiaryEntry>{
     static {
         diaryEntries = new ArrayList<>();
     }
-
+    //region Static methods
     public static void addEntry(DiaryEntry entry){
         diaryEntries.add(entry);
         OverviewActivity.mDataSource.createEntry(entry);
@@ -63,7 +63,8 @@ public class DiaryEntryAdapter extends ArrayAdapter<DiaryEntry>{
 
         return summary.toString();
     }
-
+    //endregion
+    //region ListView method
     @RequiresApi(api = Build.VERSION_CODES.M)
     @NonNull
     @Override
@@ -83,5 +84,5 @@ public class DiaryEntryAdapter extends ArrayAdapter<DiaryEntry>{
 
         return convertView;
     }
-
+    //endregion
 }

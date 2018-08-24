@@ -48,11 +48,12 @@ public class DiaryActivity extends AppCompatActivity {
                 break;
 
             case R.id.review:
-                Toast.makeText(this,"Review", Toast.LENGTH_LONG).show();
+                onPause();
+                startActivity(new Intent(this,ReviewActivity.class));
                 break;
 
             default:
-                Toast.makeText(this,"Hello",Toast.LENGTH_LONG).show();
+                Toast.makeText(this,"Hello",Toast.LENGTH_LONG);
         }
         return super.onOptionsItemSelected(item);
     }

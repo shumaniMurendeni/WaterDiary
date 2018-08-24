@@ -26,5 +26,10 @@
     <string name="review_app">Review App</string>
     <string name="help">Help</string>
     <string name="user_manual">User Manual</string>
+    <string name="body_washing_n_none_stop_start_shower_5_l_none_stop_start_with_hair_wash_10_l_n_2_minute_shower_20_l_none_waskom_or_sponge_bath_basin_3_l_n_ntoilet_none_normal_flush_9l_none_half_flush_4_5l_ngreywater_flush_from_shower_rainwater_etc_0l_n_n_hygiene_none_hands_wash_0_3l_none_face_wash_0_5l_nhands_wash_with_hand_sanitiser_0l_n_n_brushing_teeth_nbrushing_teeth_0_15l_n_nlaundry_nwashing_maching_load_70l_10_l_per_day_nhand_washing_load_per_day_9l_n_n_dishes_n1_dishwasher_load_24_l_approximately_3_5_l_per_day_n1_sink_wash_a_day_9_l_n_ndrinking_nwater_tea_coffee_3_l_n_n_cooking_nwashing_fruit_and_veg_and_to_cook_2_l_n_ncleaning_nhouse_clean_8_l_n_npets_nsmall_size_pet_0_5_l_nmedium_size_pet_1_l_n_large_size_pet_2_l_ndogs_50_70_ml_per_kg_cats_20_40_ml_per_kg">BODY WASHING  One stop/start shower = 5 l one Stop/start with hair wash = 10 l  2-minute-shower = 20 l one waskom or sponge bath (basin) = 3 l   TOILET  One normal flush= 9l  One half flush = 4.5l Greywater flush (from shower, rainwater etc) = 0l   HYGIENE  One hands wash = 0.3l One face wash = 0.5l Hands wash with hand sanitiser = 0l   BRUSHING TEETH Brushing teeth =0.15l  LAUNDRY Washing maching load (70l) = 10 l per day  Hand washing load per day = 9l   DISHES 1 dishwasher load (24 l) = approximately 3.5 l per day 1 sink wash a day = 9 l  DRINKING Water, tea, coffee = 3 l   COOKING Washing fruit and veg and to cook = 2 l  CLEANING House clean = 8 l  PETS Small size pet = 0,5 l Medium size pet = 1 l  Large size pet = 2 l Dogs: 50 –70 ml per kg. Cats: 20 – 40 ml per kg.</string>
+    <string name="app_rating">App rating</string>
+    <string name="feedback">Feedback</string>
+    <string name="submit_feedback">Submit Feedback</string>
+    <string name="app_feedback">App feedback</string>
 
 </resources>
