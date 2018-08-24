@@ -4,10 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -32,6 +36,7 @@ public class OverviewActivity extends AppCompatActivity {
 
         Intent intent = new Intent(OverviewActivity.this,CalculatorActivity.class);
         intent.putExtra("class",1);
+        onPause();
         startActivity(intent);
     }
 
@@ -46,17 +51,14 @@ public class OverviewActivity extends AppCompatActivity {
         ListView listOut = findViewById(R.id.DiaryEntriesLView);
         listOut.setAdapter(adapter);
 
-        //<editor-fold desc="Setup onClick listener">
         listOut.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                onPause();
                 DiaryActivity.index = position;
+                onPause();
                 startActivity(new Intent(OverviewActivity.this, DiaryActivity.class));
-                //Toast.makeText(OverviewActivity.this,"position" + position,Toast.LENGTH_LONG).show();
             }
         });
-        //</editor-fold>
     }
     //endregion
 
@@ -91,7 +93,6 @@ public class OverviewActivity extends AppCompatActivity {
 
     }
 
-    /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
@@ -103,20 +104,19 @@ public class OverviewActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.help:
-                //do something
+                onPause();
                 startActivity(new Intent(this,HelpActivity.class));
                 break;
 
             case R.id.review:
-                //Open the review page
-                Toast.makeText(this,"Review",Toast.LENGTH_LONG).show();
+                Toast.makeText(this,"Review", Toast.LENGTH_LONG).show();
                 break;
 
             default:
                 Toast.makeText(this,"Hello",Toast.LENGTH_LONG).show();
         }
         return super.onOptionsItemSelected(item);
-    }//*/
+    }
 
     @Override
     public void onPause() {

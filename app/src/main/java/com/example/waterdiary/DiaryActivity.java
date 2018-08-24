@@ -3,8 +3,12 @@ package com.example.waterdiary;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -26,6 +30,31 @@ public class DiaryActivity extends AppCompatActivity {
         if (entries != null && entries.size()>0) {
             DisplayDetails(index);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.help:
+                onPause();
+                startActivity(new Intent(this,HelpActivity.class));
+                break;
+
+            case R.id.review:
+                Toast.makeText(this,"Review", Toast.LENGTH_LONG).show();
+                break;
+
+            default:
+                Toast.makeText(this,"Hello",Toast.LENGTH_LONG).show();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void onNextClick(View view){

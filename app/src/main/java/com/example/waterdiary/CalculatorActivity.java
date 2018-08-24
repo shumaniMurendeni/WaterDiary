@@ -3,6 +3,9 @@ package com.example.waterdiary;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -26,6 +29,31 @@ public class CalculatorActivity extends AppCompatActivity {
         activityNo = getIntent().getIntExtra("class",1);
         configureBackButton();
         configureSubmitButton();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.help:
+                onPause();
+                startActivity(new Intent(this,HelpActivity.class));
+                break;
+
+            case R.id.review:
+                Toast.makeText(this,"Review", Toast.LENGTH_LONG).show();
+                break;
+
+            default:
+                Toast.makeText(this,"Hello",Toast.LENGTH_LONG).show();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void configureSubmitButton(){
@@ -83,7 +111,6 @@ public class CalculatorActivity extends AppCompatActivity {
                 finish();
                 if(activityNo==1){
                     OverviewActivity.lastSeen =0;
-                    startActivity(new Intent(CalculatorActivity.this,OverviewActivity.class));
                 }
                 else {
                     OverviewActivity.lastSeen = 1;

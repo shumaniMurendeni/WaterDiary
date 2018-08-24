@@ -5,7 +5,6 @@
     android:id="@+id/calculatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/background"
     android:isScrollContainer="true"
     android:scrollbars="vertical"
 
@@ -13,7 +12,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="232dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -46,8 +45,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="text|datetime|date"
-                android:freezesText="true"/>
+                android:freezesText="true"
+                android:inputType="text|datetime|date" />
 
             <TextView
                 android:id="@+id/showerTView"
@@ -64,8 +63,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="numberDecimal"
-                android:freezesText="true"/>
+                android:freezesText="true"
+                android:inputType="numberDecimal" />
 
             <TextView
                 android:id="@+id/toiletTView"
@@ -81,8 +80,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
                 android:ems="10"
-                android:inputType="numberDecimal"
-                android:freezesText="true"/>
+                android:freezesText="true"
+                android:inputType="numberDecimal" />
 
             <TextView
                 android:id="@+id/hygieneTView"
@@ -99,8 +98,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
                 android:ems="10"
-                android:inputType="numberDecimal"
-                android:freezesText="true"/>
+                android:freezesText="true"
+                android:inputType="numberDecimal" />
 
             <TextView
                 android:id="@+id/laundyTView"
@@ -117,8 +116,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
                 android:ems="10"
-                android:inputType="numberDecimal"
                 android:freezesText="true"
+                android:inputType="numberDecimal"
                 tools:ignore="LabelFor" />
 
             <TextView
@@ -136,8 +135,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
                 android:ems="10"
-                android:inputType="numberDecimal"
-                android:freezesText="true"/>
+                android:freezesText="true"
+                android:inputType="numberDecimal" />
 
             <TextView
                 android:id="@+id/cookingTView"
@@ -154,8 +153,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
                 android:ems="10"
-                android:inputType="numberDecimal"
-                android:freezesText="true"/>
+                android:freezesText="true"
+                android:inputType="numberDecimal" />
 
             <TextView
                 android:id="@+id/cleaningTView"
@@ -172,8 +171,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
                 android:ems="10"
-                android:inputType="numberDecimal"
-                android:freezesText="true"/>
+                android:freezesText="true"
+                android:inputType="numberDecimal" />
 
             <TextView
                 android:id="@+id/otherTView"
@@ -190,8 +189,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
                 android:ems="10"
-                android:inputType="numberDecimal"
-                android:freezesText="true"/>
+                android:freezesText="true"
+                android:inputType="numberDecimal" />
 
         </LinearLayout>
     </ScrollView>

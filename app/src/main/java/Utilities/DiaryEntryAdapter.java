@@ -1,8 +1,10 @@
 package Utilities;
 
 import android.content.Context;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,6 +64,7 @@ public class DiaryEntryAdapter extends ArrayAdapter<DiaryEntry>{
         return summary.toString();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -76,6 +79,7 @@ public class DiaryEntryAdapter extends ArrayAdapter<DiaryEntry>{
         DiaryEntry entry = diaryEntries.get(position);
         key.setText(entry.getDate());
         average.setText(String.format("%.2f %s",entry.getTotalLitres(),mInflater.getContext().getString(R.string.unit)));
+        if(entry.getTotalLitres()>=50){average.setTextColor(OverviewActivity.mcontext.getColor(R.color.red));}
 
         return convertView;
     }
